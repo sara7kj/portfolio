@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sara Aljaddou — Full Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Cairo:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F1F3F6;
+    --bg-alt: #E8EBF2;
+    --panel: #FFFFFF;
+    --ink: #12131A;
+    --ink-soft: #565B68;
+    --ink-faint: #8B909D;
+    --accent: #4535C1;
+    --accent-soft: #E6E2FA;
+    --coral: #F2545B;
+    --teal: #0F9488;
+    --line: #D6DAE4;
+    --radius: 14px;
+    --maxw: 1120px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em;}
+  a{color:inherit; text-decoration:none;}
+  .mono{font-family:'JetBrains Mono', monospace;}
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(241,243,246,0.85);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{display:flex; align-items:center; justify-content:space-between; height:64px;}
+  .brand{font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem;}
+  .brand span{color:var(--accent);}
+  nav ul{list-style:none; display:flex; gap:28px;}
+  nav a{font-size:0.85rem; color:var(--ink-soft); font-weight:500; transition:color .2s;}
+  nav a:hover{color:var(--accent);}
+  .nav-toggle{display:none;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    padding:110px 0 90px;
+    overflow:hidden;
+  }
+  .hero .wrap{position:relative; z-index:2;}
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.06em;
+    color:var(--teal);
+    text-transform:uppercase;
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{content:''; width:8px; height:8px; border-radius:50%; background:var(--teal); box-shadow:0 0 0 4px rgba(15,148,136,0.15);}
+  .hero-name{
+    font-size:clamp(2.6rem, 7vw, 5rem);
+    line-height:1.02;
+    color:var(--ink);
+  }
+  .hero-name .ar{
+    font-family:'Cairo', sans-serif;
+    font-weight:700;
+    color:var(--accent);
+    font-size:0.55em;
+    display:block;
+    margin-top:8px;
+    direction:rtl;
+  }
+  .hero-tag{
+    max-width:600px;
+    font-size:1.15rem;
+    color:var(--ink-soft);
+    margin:26px 0 36px;
+  }
+  .hero-tag strong{color:var(--ink); font-weight:600;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 22px;
+    border-radius:999px;
+    font-size:0.9rem; font-weight:600;
+    transition:transform .18s ease, box-shadow .18s ease;
+    border:1px solid transparent;
+  }
+  .btn-primary{background:var(--ink); color:#fff;}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(18,19,26,0.25);}
+  .btn-ghost{border-color:var(--line); color:var(--ink);}
+  .btn-ghost:hover{transform:translateY(-2px); border-color:var(--accent); color:var(--accent);}
+
+  /* decorative node graph in hero */
+  .node-field{
+    position:absolute; inset:0; z-index:1; pointer-events:none;
+  }
+  .node-field svg{width:100%; height:100%;}
+  .node-field circle{fill:var(--accent); opacity:0.35;}
+  .node-field .n2{fill:var(--coral); opacity:0.3;}
+  .node-field .n3{fill:var(--teal); opacity:0.3;}
+  .node-field line{stroke:var(--line); stroke-width:1;}
+
+  /* ---------- Section shell ---------- */
+  section{padding:84px 0;}
+  .section-head{margin-bottom:48px; max-width:640px;}
+  .section-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--accent); margin-bottom:12px; display:block;
+  }
+  .section-head h2{font-size:clamp(1.7rem, 3.2vw, 2.3rem);}
+  .section-head p{color:var(--ink-soft); margin-top:14px; font-size:1.02rem;}
+
+  /* ---------- About ---------- */
+  .about{background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;}
+  .about-body p{color:var(--ink-soft); font-size:1.05rem; margin-bottom:18px;}
+  .about-body p strong{color:var(--ink);}
+  .stat-list{display:flex; flex-direction:column; gap:22px; border-left:2px solid var(--accent-soft); padding-left:24px;}
+  .stat{}
+  .stat .num{font-family:'Fraunces',serif; font-size:1.8rem; color:var(--accent);}
+  .stat .label{font-size:0.85rem; color:var(--ink-faint); margin-top:2px;}
+
+  /* ---------- Projects — pipeline cards (signature element) ---------- */
+  .project{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px;
+    margin-bottom:24px;
+    opacity:0; transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .project.in-view{opacity:1; transform:translateY(0);}
+  .project-top{display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap; margin-bottom:8px;}
+  .project-title{font-size:1.35rem;}
+  .project-period{font-family:'JetBrains Mono', monospace; font-size:0.78rem; color:var(--ink-faint); white-space:nowrap;}
+  .project-desc{color:var(--ink-soft); margin:12px 0 24px; max-width:70ch;}
+
+  .pipeline{
+    display:grid;
+    grid-template-columns:1fr auto 1fr auto 1fr;
+    align-items:center;
+    gap:0;
+    background:var(--bg-alt);
+    border-radius:10px;
+    padding:20px;
+    margin-bottom:20px;
+  }
+  .stage{padding:0 14px;}
+  .stage .k{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--teal); display:block; margin-bottom:6px;
+  }
+  .stage.process .k{color:var(--accent);}
+  .stage.output .k{color:var(--coral);}
+  .stage .v{font-size:0.92rem; color:var(--ink); line-height:1.45;}
+  .arrow{color:var(--ink-faint); font-family:'JetBrains Mono', monospace; font-size:1.1rem; text-align:center;}
+
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px;}
+  .tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    padding:5px 11px;
+    border-radius:999px;
+    background:var(--accent-soft);
+    color:var(--accent);
+  }
+  .project-links{display:flex; gap:18px;}
+  .project-links a{font-size:0.85rem; font-weight:600; color:var(--ink); border-bottom:1px solid var(--ink); padding-bottom:1px; transition:color .2s, border-color .2s;}
+  .project-links a:hover{color:var(--accent); border-color:var(--accent);}
+
+  @media (max-width:760px){
+    .pipeline{grid-template-columns:1fr; gap:14px;}
+    .arrow{transform:rotate(90deg); padding:2px 0;}
+    .about-grid{grid-template-columns:1fr; gap:36px;}
+  }
+
+  /* ---------- Skills ---------- */
+  .skills-panel{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:36px;}
+  .skill-group{margin-bottom:26px;}
+  .skill-group:last-child{margin-bottom:0;}
+  .skill-group h3{
+    font-family:'JetBrains Mono', monospace; font-weight:500; font-size:0.8rem;
+    text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-faint); margin-bottom:14px;
+  }
+  .pill-row{display:flex; flex-wrap:wrap; gap:10px;}
+  .pill{
+    padding:8px 15px; border-radius:8px; background:var(--bg-alt); border:1px solid var(--line);
+    font-size:0.86rem; color:var(--ink); transition:border-color .2s, color .2s;
+  }
+  .pill:hover{border-color:var(--accent); color:var(--accent);}
+
+  /* ---------- Certifications ---------- */
+  .cert-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+    padding:28px 32px; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap;
+  }
+  .cert-card h3{font-size:1.1rem; margin-bottom:6px;}
+  .cert-card p{color:var(--ink-soft); font-size:0.92rem;}
+  .cert-year{font-family:'JetBrains Mono', monospace; color:var(--teal); font-size:0.85rem;}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--ink); color:#fff; border-radius:24px; margin:0 28px; padding:64px 48px; text-align:center;}
+  .contact .wrap{max-width:640px;}
+  .contact h2{color:#fff; font-size:clamp(1.9rem,4vw,2.6rem); margin-bottom:16px;}
+  .contact p{color:rgba(255,255,255,0.65); margin-bottom:36px; font-size:1.05rem;}
+  .contact-links{display:flex; justify-content:center; gap:16px; flex-wrap:wrap;}
+  .contact-links a{
+    padding:13px 22px; border-radius:999px; border:1px solid rgba(255,255,255,0.25);
+    font-size:0.9rem; font-weight:600; transition:background .2s, border-color .2s;
+  }
+  .contact-links a:hover{background:rgba(255,255,255,0.1); border-color:#fff;}
+  .contact-links a.primary{background:#fff; color:var(--ink); border-color:#fff;}
+
+  footer{padding:36px 0; text-align:center; color:var(--ink-faint); font-size:0.82rem;}
+
+  @media (max-width:600px){
+    nav ul{display:none;}
+    .hero{padding:80px 0 60px;}
+    section{padding:60px 0;}
+    .contact{margin:0 16px; padding:48px 24px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">Sara<span>.</span>Aljaddou</div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="node-field" id="nodeField"><svg id="nodeSvg" xmlns="http://www.w3.org/2000/svg"></svg></div>
+  <div class="wrap">
+    <span class="eyebrow">Riyadh, Saudi Arabia · Available for opportunities</span>
+    <h1 class="hero-name">Sara Aljaddou<span class="ar">ساره الجدوع</span></h1>
+    <p class="hero-tag">Full stack developer who builds systems that <strong>see, listen, and respond</strong> — from facial-recognition attendance platforms to a bilingual Arabic/English AI assistant.</p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn btn-primary">View projects</a>
+      <a href="Sara_Aljaddou_CV.pdf" class="btn btn-ghost" download>Download CV</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-body">
+        <span class="section-label">01 · About</span>
+        <h2 style="margin-bottom:20px;">I like building the whole thing — interface and intelligence.</h2>
+        <p>I'm a <strong>Computer Science graduate (2026)</strong> from Prince Sattam bin Abdulaziz University, focused on full stack development with a growing specialty in applied AI — retrieval-augmented generation, computer vision, and the backend plumbing that keeps both reliable.</p>
+        <p>Most of what I build ends up looking like a pipeline: something comes in, gets processed by a model or a service, and comes out as a decision, an answer, or a dashboard someone actually uses. That framing shows up in the projects below.</p>
+        <p>Outside of code, I've led technical development for a university innovation club platform and trained hands-on with embedded systems and hardware through Tuwaiq Academy.</p>
+      </div>
+      <div class="stat-list">
+        <div class="stat"><div class="num">4+</div><div class="label">End-to-end systems shipped, from ML pipelines to production dashboards</div></div>
+        <div class="stat"><div class="num">2</div><div class="label">Languages supported natively in her PSAU chatbot — Arabic and English</div></div>
+        <div class="stat"><div class="num">2026</div><div class="label">B.Sc. Computer Science, Prince Sattam bin Abdulaziz University</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-label">02 · Projects</span>
+      <h2>Selected work</h2>
+      <p>Each project below is shown as what it actually is — an input, a process, and an output.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-top">
+        <h3 class="project-title">PresenSee — Smart Attendance Tracking System</h3>
+        <span class="project-period mono">Graduation Project · 2025–2026</span>
+      </div>
+      <p class="project-desc">An intelligent attendance platform that verifies trainees using facial recognition and GPS validation, then surfaces the results to supervisors in real time.</p>
+      <div class="pipeline">
+        <div class="stage input"><span class="k">Input</span><span class="v">Trainee's face + live GPS location</span></div>
+        <div class="arrow">→</div>
+        <div class="stage process"><span class="k">Process</span><span class="v">Facial recognition + GPS validation, backend services & database</span></div>
+        <div class="arrow">→</div>
+        <div class="stage output"><span class="k">Output</span><span class="v">Supervisor dashboard with real-time analytics & reporting</span></div>
+      </div>
+      <div class="tags"><span class="tag">Facial Recognition</span><span class="tag">Python</span><span class="tag">Backend</span><span class="tag">Dashboards</span></div>
+    </div>
+
+    <div class="project">
+      <div class="project-top">
+        <h3 class="project-title">Bilingual RAG Chatbot — PSAU Student Assistant</h3>
+        <span class="project-period mono">2025–2026</span>
+      </div>
+      <p class="project-desc">A conversational assistant answering student questions in Arabic and English, grounded in the university's own knowledge base to keep answers accurate.</p>
+      <div class="pipeline">
+        <div class="stage input"><span class="k">Input</span><span class="v">Student question, Arabic or English</span></div>
+        <div class="arrow">→</div>
+        <div class="stage process"><span class="k">Process</span><span class="v">Retrieval-augmented generation over institutional sources, tuned prompting to reduce hallucination</span></div>
+        <div class="arrow">→</div>
+        <div class="stage output"><span class="k">Output</span><span class="v">Accurate, source-grounded answer, deployed to students</span></div>
+      </div>
+      <div class="tags"><span class="tag">RAG</span><span class="tag">LLMs</span><span class="tag">Arabic NLP</span><span class="tag">Prompt Engineering</span><span class="tag">Cloud</span></div>
+    </div>
+
+    <div class="project">
+      <div class="project-top">
+        <h3 class="project-title">Innovation &amp; Entrepreneurship Club Platform</h3>
+        <span class="project-period mono">King Saud University · 2025</span>
+      </div>
+      <p class="project-desc">Led technical development of the official digital platform for the club, built mobile-first so it holds up across every device students actually use.</p>
+      <div class="pipeline">
+        <div class="stage input"><span class="k">Input</span><span class="v">Club events, workshops & entrepreneurship resources</span></div>
+        <div class="arrow">→</div>
+        <div class="stage process"><span class="k">Process</span><span class="v">Responsive web app built in Dart &amp; Flutter Web, led as technical lead</span></div>
+        <div class="arrow">→</div>
+        <div class="stage output"><span class="k">Output</span><span class="v">Mobile-first platform used across student &amp; stakeholder devices</span></div>
+      </div>
+      <div class="tags"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Tech Leadership</span><span class="tag">Responsive Design</span></div>
+    </div>
+
+    <div class="project">
+      <div class="project-top">
+        <h3 class="project-title">ML Classification &amp; Data Analysis Pipeline</h3>
+        <span class="project-period mono">2024</span>
+      </div>
+      <p class="project-desc">A supervised learning pipeline that turns raw, messy data into predictions someone can actually make decisions with.</p>
+      <div class="pipeline">
+        <div class="stage input"><span class="k">Input</span><span class="v">Raw dataset</span></div>
+        <div class="arrow">→</div>
+        <div class="stage process"><span class="k">Process</span><span class="v">Preprocessing, feature engineering, model training &amp; evaluation</span></div>
+        <div class="arrow">→</div>
+        <div class="stage output"><span class="k">Output</span><span class="v">Reliable predictions supporting data-driven decisions</span></div>
+      </div>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Machine Learning</span><span class="tag">Statistics</span><span class="tag">Data Analysis</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-label">03 · Skills</span>
+      <h2>What I work with</h2>
+    </div>
+    <div class="skills-panel">
+      <div class="skill-group">
+        <h3>Languages &amp; Development</h3>
+        <div class="pill-row">
+          <span class="pill">Python</span><span class="pill">Java</span><span class="pill">JavaScript</span><span class="pill">C++</span><span class="pill">SQL</span><span class="pill">Dart</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Full Stack &amp; APIs</h3>
+        <div class="pill-row">
+          <span class="pill">Frontend Development</span><span class="pill">Backend Development</span><span class="pill">REST APIs</span><span class="pill">Flutter</span><span class="pill">Software Testing</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>AI &amp; Data</h3>
+        <div class="pill-row">
+          <span class="pill">Machine Learning</span><span class="pill">RAG Architectures</span><span class="pill">Prompt Engineering</span><span class="pill">Data Analysis</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Tools &amp; Practices</h3>
+        <div class="pill-row">
+          <span class="pill">Git</span><span class="pill">Cloud Deployment</span><span class="pill">Embedded Systems</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-label">04 · Certification</span>
+      <h2>Training</h2>
+    </div>
+    <div class="cert-card">
+      <div>
+        <h3>Raspberry Pi Training Program</h3>
+        <p>Tuwaiq Academy — hands-on training in hardware integration, embedded systems, device configuration &amp; automation workflows.</p>
+      </div>
+      <span class="cert-year">2025</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact">
+    <div class="wrap">
+      <span class="section-label" style="color:rgba(255,255,255,0.6);">05 · Contact</span>
+      <h2>Let's build something together.</h2>
+      <p>Open to full stack and AI-focused roles in Riyadh and remote. Reach out any time.</p>
+      <div class="contact-links">
+        <a class="primary" href="mailto:Sara2aljaddou@gmail.com">Sara2aljaddou@gmail.com</a>
+        <a href="tel:+966551366415">+966 55 136 6415</a>
+        <a href="https://www.linkedin.com/in/saraaljaddou" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/sara7kj" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Sara Aljaddou. Built with care.</div>
+</footer>
+
+<script>
+  // Scroll-reveal for project cards
+  const projects = document.querySelectorAll('.project');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  projects.forEach(p => io.observe(p));
+
+  // Decorative node graph in hero, generated once, respects reduced motion
+  (function(){
+    const svg = document.getElementById('nodeSvg');
+    const field = document.getElementById('nodeField');
+    if(!svg) return;
+    const w = field.clientWidth, h = field.clientHeight;
+    svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+    const nodes = [];
+    const count = window.innerWidth < 700 ? 8 : 16;
+    for(let i=0;i<count;i++){
+      nodes.push({
+        x: Math.random()*w,
+        y: Math.random()*h*0.9 + h*0.05,
+        r: Math.random()*3+2,
+        cls: ['','n2','n3'][Math.floor(Math.random()*3)]
+      });
+    }
+    let linesHtml = '';
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const dx = nodes[i].x-nodes[j].x, dy = nodes[i].y-nodes[j].y;
+        const dist = Math.sqrt(dx*dx+dy*dy);
+        if(dist < w*0.18){
+          linesHtml += `<line x1="${nodes[i].x}" y1="${nodes[i].y}" x2="${nodes[j].x}" y2="${nodes[j].y}" opacity="${Math.max(0,0.25-dist/w)}"/>`;
+        }
+      }
+    }
+    let circlesHtml = nodes.map(n => `<circle class="${n.cls}" cx="${n.x}" cy="${n.y}" r="${n.r}"/>`).join('');
+    svg.innerHTML = linesHtml + circlesHtml;
+  })();
+</script>
+
+</body>
+</html>
