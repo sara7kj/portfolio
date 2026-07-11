@@ -38,7 +38,6 @@
   a{color:inherit; text-decoration:none;}
   .mono{font-family:'JetBrains Mono', monospace;}
 
-  /* ---------- Nav ---------- */
   header{
     position:sticky; top:0; z-index:50;
     backdrop-filter:blur(10px);
@@ -53,7 +52,6 @@
   nav a:hover{color:var(--accent);}
   .nav-toggle{display:none;}
 
-  /* ---------- Hero ---------- */
   .hero{
     position:relative;
     padding:110px 0 90px;
@@ -105,7 +103,6 @@
   .btn-ghost{border-color:var(--line); color:var(--ink);}
   .btn-ghost:hover{transform:translateY(-2px); border-color:var(--accent); color:var(--accent);}
 
-  /* decorative node graph in hero */
   .node-field{
     position:absolute; inset:0; z-index:1; pointer-events:none;
   }
@@ -115,7 +112,6 @@
   .node-field .n3{fill:var(--teal); opacity:0.3;}
   .node-field line{stroke:var(--line); stroke-width:1;}
 
-  /* ---------- Section shell ---------- */
   section{padding:84px 0;}
   .section-head{margin-bottom:48px; max-width:640px;}
   .section-label{
@@ -126,7 +122,6 @@
   .section-head h2{font-size:clamp(1.7rem, 3.2vw, 2.3rem);}
   .section-head p{color:var(--ink-soft); margin-top:14px; font-size:1.02rem;}
 
-  /* ---------- About ---------- */
   .about{background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
   .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;}
   .about-body p{color:var(--ink-soft); font-size:1.05rem; margin-bottom:18px;}
@@ -136,7 +131,6 @@
   .stat .num{font-family:'Fraunces',serif; font-size:1.8rem; color:var(--accent);}
   .stat .label{font-size:0.85rem; color:var(--ink-faint); margin-top:2px;}
 
-  /* ---------- Projects — pipeline cards (signature element) ---------- */
   .project{
     background:var(--panel);
     border:1px solid var(--line);
@@ -186,13 +180,52 @@
   .project-links a{font-size:0.85rem; font-weight:600; color:var(--ink); border-bottom:1px solid var(--ink); padding-bottom:1px; transition:color .2s, border-color .2s;}
   .project-links a:hover{color:var(--accent); border-color:var(--accent);}
 
+  .project.featured{border-color:var(--accent); position:relative;}
+  .featured-badge{
+    display:inline-block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.7rem; letter-spacing:0.05em; text-transform:uppercase;
+    color:var(--accent); background:var(--accent-soft);
+    padding:5px 12px; border-radius:999px; margin-bottom:16px;
+  }
+
+  .gallery-block{margin:26px 0;}
+  .gallery-label{
+    display:block; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--ink-faint); margin-bottom:12px;
+  }
+
+  .gallery-mobile{
+    display:flex; gap:20px; overflow-x:auto; padding:4px 4px 14px;
+    scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+  }
+  .phone-frame{
+    flex:0 0 auto; width:180px; scroll-snap-align:start;
+    background:var(--ink); border-radius:26px; padding:8px;
+    box-shadow:0 16px 34px rgba(18,19,26,0.18);
+  }
+  .phone-notch{
+    width:46px; height:5px; border-radius:4px; background:rgba(255,255,255,0.25);
+    margin:0 auto 6px;
+  }
+  .phone-frame img{width:100%; display:block; border-radius:16px;}
+
+  .gallery-web{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .browser-frame{
+    border-radius:12px; overflow:hidden; border:1px solid var(--line);
+    box-shadow:0 16px 34px rgba(18,19,26,0.1); background:var(--panel);
+  }
+  .browser-bar{height:26px; background:var(--bg-alt); display:flex; align-items:center; gap:6px; padding:0 12px; border-bottom:1px solid var(--line);}
+  .browser-bar span{width:7px; height:7px; border-radius:50%; background:var(--line);}
+  .browser-frame img{width:100%; display:block;}
+
   @media (max-width:760px){
     .pipeline{grid-template-columns:1fr; gap:14px;}
     .arrow{transform:rotate(90deg); padding:2px 0;}
     .about-grid{grid-template-columns:1fr; gap:36px;}
+    .gallery-web{grid-template-columns:1fr;}
   }
 
-  /* ---------- Skills ---------- */
   .skills-panel{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:36px;}
   .skill-group{margin-bottom:26px;}
   .skill-group:last-child{margin-bottom:0;}
@@ -207,7 +240,6 @@
   }
   .pill:hover{border-color:var(--accent); color:var(--accent);}
 
-  /* ---------- Certifications ---------- */
   .cert-card{
     background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
     padding:28px 32px; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap;
@@ -216,7 +248,6 @@
   .cert-card p{color:var(--ink-soft); font-size:0.92rem;}
   .cert-year{font-family:'JetBrains Mono', monospace; color:var(--teal); font-size:0.85rem;}
 
-  /* ---------- Contact ---------- */
   .contact{background:var(--ink); color:#fff; border-radius:24px; margin:0 28px; padding:64px 48px; text-align:center;}
   .contact .wrap{max-width:640px;}
   .contact h2{color:#fff; font-size:clamp(1.9rem,4vw,2.6rem); margin-bottom:16px;}
@@ -296,12 +327,14 @@
       <p>Each project below is shown as what it actually is — an input, a process, and an output.</p>
     </div>
 
-    <div class="project">
+    <div class="project featured">
+      <span class="featured-badge">★ Featured · Graduation Project</span>
       <div class="project-top">
         <h3 class="project-title">PresenSee — Smart Attendance Tracking System</h3>
-        <span class="project-period mono">Graduation Project · 2025–2026</span>
+        <span class="project-period mono">2025–2026</span>
       </div>
-      <p class="project-desc">An intelligent attendance platform that verifies trainees using facial recognition and GPS validation, then surfaces the results to supervisors in real time.</p>
+      <p class="project-desc">A trainee opens the app, glances at their phone, and their attendance is verified and logged before they've even sat down — no sign-in sheets, no manual checks. PresenSee confirms who someone is and where they are at the same moment, then turns that into a live picture supervisors can actually act on: who's present right now, who's excused, and who needs a follow-up.</p>
+
       <div class="pipeline">
         <div class="stage input"><span class="k">Input</span><span class="v">Trainee's face + live GPS location</span></div>
         <div class="arrow">→</div>
@@ -309,7 +342,43 @@
         <div class="arrow">→</div>
         <div class="stage output"><span class="k">Output</span><span class="v">Supervisor dashboard with real-time analytics & reporting</span></div>
       </div>
-      <div class="tags"><span class="tag">Facial Recognition</span><span class="tag">Python</span><span class="tag">Backend</span><span class="tag">Dashboards</span></div>
+
+      <div class="gallery-block">
+        <span class="gallery-label mono">Trainee app</span>
+        <div class="gallery-mobile">
+          <figure class="phone-frame">
+            <div class="phone-notch"></div>
+            <img src="images/loadingGPS.png" alt="PresenSee check-in screen with location and face verification steps" loading="lazy">
+          </figure>
+          <figure class="phone-frame">
+            <div class="phone-notch"></div>
+            <img src="images/Screenshot_1778522927.png" alt="PresenSee home screen showing an active session timer and check-out action" loading="lazy">
+          </figure>
+          <figure class="phone-frame">
+            <div class="phone-notch"></div>
+            <img src="images/Attend.png" alt="PresenSee attendance history list with present and absent totals" loading="lazy">
+          </figure>
+        </div>
+      </div>
+
+      <div class="gallery-block">
+        <span class="gallery-label mono">Supervisor dashboard</span>
+        <div class="gallery-web">
+          <figure class="browser-frame">
+            <div class="browser-bar"><span></span><span></span><span></span></div>
+            <img src="images/presensee-dashboard-overview.png" alt="PresenSee supervisor dashboard with attendance stats and today's performance chart" loading="lazy">
+          </figure>
+          <figure class="browser-frame">
+            <div class="browser-bar"><span></span><span></span><span></span></div>
+            <img src="images/presensee-dashboard-students.png" alt="PresenSee students list with search and progress tracking" loading="lazy">
+          </figure>
+        </div>
+      </div>
+
+      <div class="tags"><span class="tag">Facial Recognition</span><span class="tag">Python</span><span class="tag">Backend</span><span class="tag">Dashboards</span><span class="tag">GPS Validation</span></div>
+      <div class="project-links">
+        <a href="https://presensee-1989d.web.app/" target="_blank" rel="noopener">Live demo ↗</a>
+      </div>
     </div>
 
     <div class="project">
@@ -434,14 +503,12 @@
 </footer>
 
 <script>
-  // Scroll-reveal for project cards
   const projects = document.querySelectorAll('.project');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); } });
   }, {threshold:0.15});
   projects.forEach(p => io.observe(p));
 
-  // Decorative node graph in hero, generated once, respects reduced motion
   (function(){
     const svg = document.getElementById('nodeSvg');
     const field = document.getElementById('nodeField');
