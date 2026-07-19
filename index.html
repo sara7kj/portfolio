@@ -226,6 +226,56 @@
     .gallery-web{grid-template-columns:1fr;}
   }
 
+  .marquee{
+    position:relative; overflow:hidden; padding:6px 0; margin-bottom:20px;
+    -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .marquee:last-child{margin-bottom:0;}
+  .marquee-track{
+    display:flex; gap:18px; width:max-content;
+    animation:scroll-x 40s linear infinite;
+  }
+  .marquee-reverse .marquee-track{animation-direction:reverse;}
+  .marquee:hover .marquee-track{animation-play-state:paused;}
+  @keyframes scroll-x{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  .skill-chip{
+    flex:0 0 auto; display:flex; align-items:center; gap:12px;
+    padding:16px 26px; border-radius:14px;
+    background:var(--panel); border:1px solid var(--line);
+    box-shadow:0 4px 14px rgba(18,19,26,0.04);
+  }
+  .skill-chip img{width:28px; height:28px; display:block;}
+  .skill-chip span{font-size:1rem; font-weight:600; color:var(--ink); white-space:nowrap;}
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track{animation:none; flex-wrap:wrap; width:auto;}
+    .marquee{-webkit-mask-image:none; mask-image:none;}
+  }
+
+  .timeline{position:relative; margin-top:8px;}
+  .timeline-item{
+    position:relative; padding:0 0 34px 34px; border-left:2px solid var(--line);
+  }
+  .timeline-item:last-child{border-left-color:transparent; padding-bottom:0;}
+  .timeline-item::before{
+    content:''; position:absolute; left:-9px; top:2px;
+    width:16px; height:16px; border-radius:50%;
+    background:var(--panel); border:3px solid var(--accent);
+  }
+  .timeline-item.win::before{border-color:var(--coral);}
+  .timeline-head{display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap;}
+  .timeline-role{font-family:'Fraunces',serif; font-size:1.15rem; font-weight:600; color:var(--ink);}
+  .timeline-org{color:var(--accent); font-weight:600;}
+  .timeline-date{font-family:'JetBrains Mono', monospace; font-size:0.78rem; color:var(--ink-faint); white-space:nowrap;}
+  .timeline-desc{color:var(--ink-soft); font-size:0.96rem; margin-top:6px;}
+  .medal{
+    display:inline-block; font-family:'JetBrains Mono', monospace; font-size:0.72rem;
+    color:var(--coral); background:rgba(242,84,91,0.1); padding:3px 10px; border-radius:999px; margin-left:8px;
+  }
+
   .skills-panel{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:36px;}
   .skill-group{margin-bottom:26px;}
   .skill-group:last-child{margin-bottom:0;}
@@ -298,6 +348,7 @@
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -327,7 +378,7 @@
         <h2 style="margin-bottom:20px;">I like building the whole thing — interface and intelligence.</h2>
         <p>I'm a <strong>Computer Science graduate (2026)</strong> from Prince Sattam bin Abdulaziz University, focused on full stack development with a growing specialty in applied AI — retrieval-augmented generation, computer vision, and the backend plumbing that keeps both reliable.</p>
         <p>Most of what I build ends up looking like a pipeline: something comes in, gets processed by a model or a service, and comes out as a decision, an answer, or a dashboard someone actually uses. That framing shows up in the projects below.</p>
-        <p>Outside of code, I've led technical development for a university innovation club platform and trained hands-on with embedded systems and hardware through Tuwaiq Academy.</p>
+        <p>Outside of code, I've interned at TAHAKOM, led technical development for a university innovation club platform, and competed in national hackathons.</p>
       </div>
       <div class="stat-list">
         <div class="stat"><div class="num">4+</div><div class="label">End-to-end systems shipped, from ML pipelines to production dashboards</div></div>
@@ -367,7 +418,7 @@
         <div class="gallery-mobile">
           <figure class="phone-frame">
             <div class="phone-notch"></div>
-            <img src="images/signup.png" alt="وصف مختصر للشاشة" loading="lazy">
+            <img src="images/signup.png" alt="PresenSee sign-up screen" loading="lazy">
           </figure>
           <figure class="phone-frame">
             <div class="phone-notch"></div>
@@ -383,15 +434,15 @@
           </figure>
           <figure class="phone-frame">
             <div class="phone-notch"></div>
-            <img src="images/exec.png" alt="وصف مختصر للشاشة" loading="lazy">
+            <img src="images/exec.png" alt="PresenSee excuse request screen" loading="lazy">
           </figure>
           <figure class="phone-frame">
             <div class="phone-notch"></div>
-            <img src="images/date.png" alt="وصف مختصر للشاشة" loading="lazy">
+            <img src="images/date.png" alt="PresenSee date selection screen" loading="lazy">
           </figure>
           <figure class="phone-frame">
             <div class="phone-notch"></div>
-            <img src="images/execD.png" alt="وصف مختصر للشاشة" loading="lazy">
+            <img src="images/execD.png" alt="PresenSee excuse details screen" loading="lazy">
           </figure>
         </div>
       </div>
@@ -472,36 +523,84 @@
   </div>
 </section>
 
+<section id="experience" class="about">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-label">03 · Experience &amp; Achievements</span>
+      <h2>Where I've been</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-head">
+          <div><span class="timeline-role">EPMO Intern</span> · <span class="timeline-org">TAHAKOM</span></div>
+          <span class="timeline-date">June 2026 – Present</span>
+        </div>
+        <p class="timeline-desc">Interning with the Enterprise Project Management Office (EPMO), supporting project governance, tracking, and delivery across the organization.</p>
+      </div>
+      <div class="timeline-item win">
+        <div class="timeline-head">
+          <div><span class="timeline-role">Sattamathon Hackathon</span><span class="medal">🏆 4th Place</span></div>
+          <span class="timeline-date">2025</span>
+        </div>
+        <p class="timeline-desc">Competed against university teams and placed 4th, building and pitching a working prototype under time pressure.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-head">
+          <div><span class="timeline-role">Digital Innovation Hackathon</span> · <span class="timeline-org">Participant</span></div>
+          <span class="timeline-date">2025</span>
+        </div>
+        <p class="timeline-desc">Took part in an intensive innovation challenge, collaborating on a rapid prototype from concept to demo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="skills">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-label">03 · Skills</span>
+      <span class="section-label">04 · Skills</span>
       <h2>What I work with</h2>
     </div>
-    <div class="skills-panel">
-      <div class="skill-group">
-        <h3>Languages &amp; Development</h3>
-        <div class="pill-row">
-          <span class="pill">Python</span><span class="pill">Java</span><span class="pill">JavaScript</span><span class="pill">C++</span><span class="pill">SQL</span><span class="pill">Dart</span>
-        </div>
+
+    <div class="marquee" aria-label="Technical skills">
+      <div class="marquee-track">
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/python" alt=""><span>Python</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/openjdk" alt=""><span>Java</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/javascript" alt=""><span>JavaScript</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/cplusplus" alt=""><span>C++</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/mysql" alt=""><span>SQL</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/dart" alt=""><span>Dart</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/flutter" alt=""><span>Flutter</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/git" alt=""><span>Git</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/python" alt=""><span>Python</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/openjdk" alt=""><span>Java</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/javascript" alt=""><span>JavaScript</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/cplusplus" alt=""><span>C++</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/mysql" alt=""><span>SQL</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/dart" alt=""><span>Dart</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/flutter" alt=""><span>Flutter</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/git" alt=""><span>Git</span></div>
       </div>
-      <div class="skill-group">
-        <h3>Full Stack &amp; APIs</h3>
-        <div class="pill-row">
-          <span class="pill">Frontend Development</span><span class="pill">Backend Development</span><span class="pill">REST APIs</span><span class="pill">Flutter</span><span class="pill">Software Testing</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h3>AI &amp; Data</h3>
-        <div class="pill-row">
-          <span class="pill">Machine Learning</span><span class="pill">RAG Architectures</span><span class="pill">Prompt Engineering</span><span class="pill">Data Analysis</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h3>Tools &amp; Practices</h3>
-        <div class="pill-row">
-          <span class="pill">Git</span><span class="pill">Cloud Deployment</span><span class="pill">Embedded Systems</span>
-        </div>
+    </div>
+
+    <div class="marquee marquee-reverse" aria-label="More technical skills">
+      <div class="marquee-track">
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/tensorflow" alt=""><span>Machine Learning</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/openai" alt=""><span>LLMs &amp; RAG</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/react" alt=""><span>Frontend</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/nodedotjs" alt=""><span>Backend</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/fastapi" alt=""><span>REST APIs</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/googlecloud" alt=""><span>Cloud</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/raspberrypi" alt=""><span>Embedded Systems</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/pandas" alt=""><span>Data Analysis</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/tensorflow" alt=""><span>Machine Learning</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/openai" alt=""><span>LLMs &amp; RAG</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/react" alt=""><span>Frontend</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/nodedotjs" alt=""><span>Backend</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/fastapi" alt=""><span>REST APIs</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/googlecloud" alt=""><span>Cloud</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/raspberrypi" alt=""><span>Embedded Systems</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/pandas" alt=""><span>Data Analysis</span></div>
       </div>
     </div>
   </div>
@@ -510,7 +609,7 @@
 <section id="certifications">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-label">04 · Certification</span>
+      <span class="section-label">05 · Certification</span>
       <h2>Training</h2>
     </div>
     <div class="cert-card">
@@ -526,7 +625,7 @@
 <section id="contact">
   <div class="contact">
     <div class="wrap">
-      <span class="section-label" style="color:rgba(255,255,255,0.6);">05 · Contact</span>
+      <span class="section-label" style="color:rgba(255,255,255,0.6);">06 · Contact</span>
       <h2>Let's build something together.</h2>
       <p>Open to full stack and AI-focused roles in Riyadh and remote. Send me a message or reach out directly.</p>
 
