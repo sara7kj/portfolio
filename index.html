@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sara Aljaddou — Full Stack Developer</title>
+<title>Sara Aljaddou — Software &amp; AI Engineer</title>
+
+<meta name="description" content="Sara Aljaddou — Computer Science graduate in Riyadh building bilingual Arabic/English retrieval systems, facial-recognition apps, and the backends that keep them reliable.">
+<meta property="og:title" content="Sara Aljaddou — Software &amp; AI Engineer">
+<meta property="og:description" content="Bilingual Arabic/English retrieval systems, facial-recognition attendance, and the backends behind them. CS graduate, PSAU 2026.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sara7kj.github.io/portfolio/">
+<meta property="og:image" content="https://sara7kj.github.io/portfolio/images/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Cairo:wght@600;700&display=swap" rel="stylesheet">
@@ -37,6 +46,9 @@
   h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em;}
   a{color:inherit; text-decoration:none;}
   .mono{font-family:'JetBrains Mono', monospace;}
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline:2px solid var(--accent); outline-offset:3px;
+  }
 
   header{
     position:sticky; top:0; z-index:50;
@@ -83,7 +95,7 @@
     direction:rtl;
   }
   .hero-tag{
-    max-width:600px;
+    max-width:640px;
     font-size:1.15rem;
     color:var(--ink-soft);
     margin:26px 0 36px;
@@ -127,8 +139,7 @@
   .about-body p{color:var(--ink-soft); font-size:1.05rem; margin-bottom:18px;}
   .about-body p strong{color:var(--ink);}
   .stat-list{display:flex; flex-direction:column; gap:22px; border-left:2px solid var(--accent-soft); padding-left:24px;}
-  .stat{}
-  .stat .num{font-family:'Fraunces',serif; font-size:1.8rem; color:var(--accent);}
+  .stat .num{font-family:'Fraunces',serif; font-size:1.8rem; color:var(--accent); line-height:1.2;}
   .stat .label{font-size:0.85rem; color:var(--ink-faint); margin-top:2px;}
 
   .project{
@@ -167,6 +178,53 @@
   .stage .v{font-size:0.92rem; color:var(--ink); line-height:1.45;}
   .arrow{color:var(--ink-faint); font-family:'JetBrains Mono', monospace; font-size:1.1rem; text-align:center;}
 
+  /* ---- Measured results ---- */
+  .metrics{
+    width:100%; border-collapse:collapse; margin:0 0 10px;
+    font-size:0.88rem;
+  }
+  .metrics caption{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem; letter-spacing:0.05em;
+    color:var(--ink-faint); text-align:left; margin-bottom:12px;
+  }
+  .metrics th, .metrics td{
+    padding:11px 14px; text-align:left; border-bottom:1px solid var(--line);
+  }
+  .metrics th{
+    font-family:'JetBrains Mono', monospace; font-weight:500;
+    font-size:0.74rem; color:var(--ink-faint);
+  }
+  .metrics td{color:var(--ink-soft);}
+  .metrics tbody tr:last-child td{border-bottom:none;}
+  .metrics .num-base{font-family:'JetBrains Mono', monospace; color:var(--ink-faint);}
+  .metrics .num-win{font-family:'JetBrains Mono', monospace; color:var(--teal); font-weight:600;}
+  .metrics-note{
+    font-size:0.85rem; color:var(--ink-faint); margin-bottom:22px; max-width:70ch;
+  }
+
+  .figures{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:22px 0; margin-bottom:22px;
+  }
+  .figure .fnum{
+    display:block; font-family:'JetBrains Mono', monospace;
+    font-size:1.15rem; color:var(--teal); font-weight:500; margin-bottom:6px;
+  }
+  .figure .flabel{font-size:0.82rem; color:var(--ink-faint); line-height:1.45;}
+
+  .status-line{
+    display:flex; align-items:flex-start; gap:11px;
+    background:var(--bg-alt); border-radius:10px;
+    padding:14px 18px; margin-bottom:20px;
+    font-size:0.86rem; color:var(--ink-soft); max-width:74ch;
+  }
+  .status-line .dot{
+    flex:0 0 auto; width:8px; height:8px; border-radius:50%;
+    background:var(--coral); margin-top:7px;
+  }
+
   .tags{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px;}
   .tag{
     font-family:'JetBrains Mono', monospace;
@@ -176,7 +234,7 @@
     background:var(--accent-soft);
     color:var(--accent);
   }
-  .project-links{display:flex; gap:18px;}
+  .project-links{display:flex; gap:18px; flex-wrap:wrap;}
   .project-links a{font-size:0.85rem; font-weight:600; color:var(--ink); border-bottom:1px solid var(--ink); padding-bottom:1px; transition:color .2s, border-color .2s;}
   .project-links a:hover{color:var(--accent); border-color:var(--accent);}
 
@@ -211,6 +269,7 @@
   .phone-frame img{width:100%; display:block; border-radius:16px;}
 
   .gallery-web{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .gallery-web.single{grid-template-columns:1fr;}
   .browser-frame{
     border-radius:12px; overflow:hidden; border:1px solid var(--line);
     box-shadow:0 16px 34px rgba(18,19,26,0.1); background:var(--panel);
@@ -224,6 +283,11 @@
     .arrow{transform:rotate(90deg); padding:2px 0;}
     .about-grid{grid-template-columns:1fr; gap:36px;}
     .gallery-web{grid-template-columns:1fr;}
+    .figures{grid-template-columns:1fr; gap:18px;}
+  }
+  @media (max-width:560px){
+    .metrics{font-size:0.8rem;}
+    .metrics th, .metrics td{padding:9px 8px;}
   }
 
   .marquee{
@@ -250,9 +314,12 @@
   }
   .skill-chip img{width:28px; height:28px; display:block;}
   .skill-chip span{font-size:1rem; font-weight:600; color:var(--ink); white-space:nowrap;}
+
   @media (prefers-reduced-motion: reduce){
     .marquee-track{animation:none; flex-wrap:wrap; width:auto;}
     .marquee{-webkit-mask-image:none; mask-image:none;}
+    .project{opacity:1; transform:none; transition:none;}
+    html{scroll-behavior:auto;}
   }
 
   .timeline{position:relative; margin-top:8px;}
@@ -271,31 +338,20 @@
   .timeline-org{color:var(--accent); font-weight:600;}
   .timeline-date{font-family:'JetBrains Mono', monospace; font-size:0.78rem; color:var(--ink-faint); white-space:nowrap;}
   .timeline-desc{color:var(--ink-soft); font-size:0.96rem; margin-top:6px;}
+  .timeline-desc ul{margin:8px 0 0 18px;}
+  .timeline-desc li{margin-bottom:5px;}
   .medal{
     display:inline-block; font-family:'JetBrains Mono', monospace; font-size:0.72rem;
     color:var(--coral); background:rgba(242,84,91,0.1); padding:3px 10px; border-radius:999px; margin-left:8px;
   }
 
-  .skills-panel{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:36px;}
-  .skill-group{margin-bottom:26px;}
-  .skill-group:last-child{margin-bottom:0;}
-  .skill-group h3{
-    font-family:'JetBrains Mono', monospace; font-weight:500; font-size:0.8rem;
-    text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-faint); margin-bottom:14px;
-  }
-  .pill-row{display:flex; flex-wrap:wrap; gap:10px;}
-  .pill{
-    padding:8px 15px; border-radius:8px; background:var(--bg-alt); border:1px solid var(--line);
-    font-size:0.86rem; color:var(--ink); transition:border-color .2s, color .2s;
-  }
-  .pill:hover{border-color:var(--accent); color:var(--accent);}
-
+  .cert-list{display:flex; flex-direction:column; gap:18px;}
   .cert-card{
     background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
     padding:28px 32px; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap;
   }
   .cert-card h3{font-size:1.1rem; margin-bottom:6px;}
-  .cert-card p{color:var(--ink-soft); font-size:0.92rem;}
+  .cert-card p{color:var(--ink-soft); font-size:0.92rem; max-width:70ch;}
   .cert-year{font-family:'JetBrains Mono', monospace; color:var(--teal); font-size:0.85rem;}
 
   .contact{background:var(--ink); color:#fff; border-radius:24px; margin:0 28px; padding:64px 48px; text-align:center;}
@@ -338,6 +394,7 @@
     .contact{margin:0 16px; padding:48px 24px;}
   }
 </style>
+<noscript><style>.project{opacity:1; transform:none;}</style></noscript>
 </head>
 <body>
 
@@ -359,9 +416,9 @@
 <section class="hero">
   <div class="node-field" id="nodeField"><svg id="nodeSvg" xmlns="http://www.w3.org/2000/svg"></svg></div>
   <div class="wrap">
-    <span class="eyebrow">Riyadh, Saudi Arabia · Available for opportunities</span>
-    <h1 class="hero-name">Sara Aljaddou<span class="ar">ساره الجدوع</span></h1>
-    <p class="hero-tag">Full stack developer who builds systems that <strong>see, listen, and respond</strong> — from facial-recognition attendance platforms to a bilingual Arabic/English AI assistant.</p>
+    <span class="eyebrow">Riyadh, Saudi Arabia · Open to Software &amp; AI Engineer roles</span>
+    <h1 class="hero-name">Sara Aljaddou<span class="ar" lang="ar">ساره الجدوع</span></h1>
+    <p class="hero-tag">Computer Science graduate who builds systems that <strong>see, understand, and answer</strong> — a facial-recognition attendance platform in production, and bilingual Arabic/English retrieval measured in both directions.</p>
     <div class="hero-ctas">
       <a href="#projects" class="btn btn-primary">View projects</a>
       <a href="Sara_Aljaddou_CV.pdf" class="btn btn-ghost" download>Download CV</a>
@@ -375,14 +432,14 @@
     <div class="about-grid">
       <div class="about-body">
         <span class="section-label">01 · About</span>
-        <h2 style="margin-bottom:20px;">I like building the whole thing — interface and intelligence.</h2>
-        <p>I'm a <strong>Computer Science graduate (2026)</strong> from Prince Sattam bin Abdulaziz University, focused on full stack development with a growing specialty in applied AI — retrieval-augmented generation, computer vision, and the backend plumbing that keeps both reliable.</p>
-        <p>Most of what I build ends up looking like a pipeline: something comes in, gets processed by a model or a service, and comes out as a decision, an answer, or a dashboard someone actually uses. That framing shows up in the projects below.</p>
-        <p>Outside of code, I've interned at TAHAKOM, led technical development for a university innovation club platform, and competed in national hackathons.</p>
+        <h2 style="margin-bottom:20px;">I build systems that answer in the language you asked in.</h2>
+        <p>I'm a <strong>Computer Science graduate (2026)</strong> from Prince Sattam bin Abdulaziz University. My work sits where retrieval, language models, and real product constraints meet — particularly Arabic-language systems, where the tooling is still thin.</p>
+        <p>Most of what I build ends up looking like a pipeline: something comes in, gets processed by a model or a service, and comes out as a decision, an answer, or a dashboard someone acts on. The projects below are laid out that way because that's how they were built.</p>
+        <p>Alongside my degree, I interned with TAHAKOM's EPMO, led technical development on a student innovation club platform now live in production, and placed 4th at Sattamathon.</p>
       </div>
       <div class="stat-list">
-        <div class="stat"><div class="num">4+</div><div class="label">End-to-end systems shipped, from ML pipelines to production dashboards</div></div>
-        <div class="stat"><div class="num">2</div><div class="label">Languages supported natively in her PSAU chatbot — Arabic and English</div></div>
+        <div class="stat"><div class="num">4</div><div class="label">Systems shipped end to end, from retrieval pipelines to production dashboards</div></div>
+        <div class="stat"><div class="num">AR + EN</div><div class="label">Bilingual retrieval, measured in both directions rather than assumed</div></div>
         <div class="stat"><div class="num">2026</div><div class="label">B.Sc. Computer Science, Prince Sattam bin Abdulaziz University</div></div>
       </div>
     </div>
@@ -394,23 +451,91 @@
     <div class="section-head">
       <span class="section-label">02 · Projects</span>
       <h2>Selected work</h2>
-      <p>Each project below is shown as what it actually is — an input, a process, and an output.</p>
+      <p>Every project here is a pipeline: something goes in, something happens to it, something useful comes out.</p>
     </div>
 
+    <!-- ===================== NEXA ===================== -->
+    <div class="project featured">
+      <span class="featured-badge">★ Featured · Independent build</span>
+      <div class="project-top">
+        <h3 class="project-title">NEXA — Bilingual Enterprise Operations Agent</h3>
+        <span class="project-period mono">2026</span>
+      </div>
+
+      <p class="project-desc">An employee asks a question in Arabic and gets the answer out of an English policy document. A manager asks to change a project's status, and the system refuses to run it until a director approves. NEXA is built on one rule: a prompt is a request, code is a guarantee. Permissions are checked in the tool execution layer, identity comes only from a validated token, and no sensitive action executes without a persisted human approval — regardless of what any prompt, retrieved document, or model output says.</p>
+
+      <div class="pipeline">
+        <div class="stage input"><span class="k">Input</span><span class="v">A question in Arabic or English, or a request to change project state</span></div>
+        <div class="arrow">→</div>
+        <div class="stage process"><span class="k">Process</span><span class="v">Multilingual dense retrieval with cross-encoder reranking; enum-typed tool layer with role checks and a human approval gate</span></div>
+        <div class="arrow">→</div>
+        <div class="stage output"><span class="k">Output</span><span class="v">A cited cross-lingual answer, or an approved state change written with its audit record</span></div>
+      </div>
+
+      <table class="metrics">
+        <caption>Cross-lingual retrieval · 12 documents, 24 questions, answer never in the query's language</caption>
+        <thead>
+          <tr>
+            <th scope="col">Pipeline</th>
+            <th scope="col">Recall@1</th>
+            <th scope="col">Same-language bias</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dense retrieval only</td>
+            <td class="num-base">0.38</td>
+            <td class="num-base">0.62</td>
+          </tr>
+          <tr>
+            <td>Dense + cross-encoder rerank</td>
+            <td class="num-win">0.92</td>
+            <td class="num-win">0.08</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="metrics-note">Recall@5 under dense retrieval alone was already 0.92 — the right document was being found, just not ranked first. Same-language bias measures how often the top result shares the query's language, where 0.50 is neutral. Reranking is what closed the gap.</p>
+
+      <div class="gallery-block">
+        <span class="gallery-label mono">An Arabic query returning an English source</span>
+        <div class="gallery-web single">
+          <figure class="browser-frame">
+            <div class="browser-bar"><span></span><span></span><span></span></div>
+            <img src="images/demo.png" alt="NEXA search results: an Arabic query scoring the correct English policy document at 0.97, well above the closest Arabic document at 0.12" loading="lazy">
+          </figure>
+        </div>
+      </div>
+
+      <div class="status-line">
+        <span class="dot"></span>
+        <span>Retrieval, authentication, the tool layer, and the approval flow are built, measured, and covered by 71 tests. The LangGraph agent that orchestrates the tools is specified and in progress. All data in the repository is synthetic.</span>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Cross-lingual RAG</span><span class="tag">Cross-encoder Reranking</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">SQLAlchemy</span><span class="tag">JWT + Argon2</span><span class="tag">Access Control</span><span class="tag">Pytest</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/sara7kj/NEXA" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://github.com/sara7kj/NEXA/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noopener">Architecture decisions ↗</a>
+        <a href="https://github.com/sara7kj/NEXA/blob/main/docs/adr/ADR-009-embeddings.md" target="_blank" rel="noopener">Retrieval evaluation ↗</a>
+      </div>
+    </div>
+
+    <!-- ===================== PresenSee ===================== -->
     <div class="project featured">
       <span class="featured-badge">★ Featured · Graduation Project</span>
       <div class="project-top">
         <h3 class="project-title">PresenSee — Smart Attendance Tracking System</h3>
         <span class="project-period mono">2025–2026</span>
       </div>
-      <p class="project-desc">A trainee opens the app, glances at their phone, and their attendance is verified and logged before they've even sat down — no sign-in sheets, no manual checks. PresenSee confirms who someone is and where they are at the same moment, then turns that into a live picture supervisors can actually act on: who's present right now, who's excused, and who needs a follow-up.</p>
+      <p class="project-desc">A trainee opens the app, glances at their phone, and their attendance is verified and logged before they've sat down — no sign-in sheets, no manual roll call. PresenSee confirms who someone is and where they are in the same moment, then turns that into a live picture supervisors can act on: who's present, who's excused, who needs a follow-up. Built as my graduation project — a cross-platform Flutter app, face verification with the MLFaceNet model, and Firebase handling authentication and real-time sync.</p>
 
       <div class="pipeline">
         <div class="stage input"><span class="k">Input</span><span class="v">Trainee's face + live GPS location</span></div>
         <div class="arrow">→</div>
-        <div class="stage process"><span class="k">Process</span><span class="v">Facial recognition + GPS validation, backend services & database</span></div>
+        <div class="stage process"><span class="k">Process</span><span class="v">MLFaceNet face verification + GPS validation, with Firebase auth and real-time sync</span></div>
         <div class="arrow">→</div>
-        <div class="stage output"><span class="k">Output</span><span class="v">Supervisor dashboard with real-time analytics & reporting</span></div>
+        <div class="stage output"><span class="k">Output</span><span class="v">Supervisor dashboard with real-time analytics &amp; automated reporting</span></div>
       </div>
 
       <div class="gallery-block">
@@ -461,65 +586,78 @@
         </div>
       </div>
 
-      <div class="tags"><span class="tag">Facial Recognition</span><span class="tag">Python</span><span class="tag">Backend</span><span class="tag">Dashboards</span><span class="tag">GPS Validation</span></div>
+      <div class="tags">
+        <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Firebase</span><span class="tag">MLFaceNet</span><span class="tag">Facial Recognition</span><span class="tag">GPS Validation</span><span class="tag">Dashboards</span>
+      </div>
       <div class="project-links">
         <a href="https://presensee-1989d.web.app/" target="_blank" rel="noopener">Live demo ↗</a>
+        <a href="https://github.com/sara7kj/presensee" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </div>
 
+    <!-- ===================== PSAU Chatbot ===================== -->
     <div class="project">
       <div class="project-top">
         <h3 class="project-title">Bilingual RAG Chatbot — PSAU Student Assistant</h3>
-        <span class="project-period mono">2025–2026</span>
+        <span class="project-period mono">2026</span>
       </div>
-      <p class="project-desc">A conversational assistant answering student questions in Arabic and English, grounded in the university's own knowledge base to keep answers accurate.</p>
+      <p class="project-desc">Students ask the same questions every semester — admissions, policies, study plans, deadlines — and the answers sit buried in documents nobody reads. This assistant answers them conversationally in Arabic or English, retrieving from a curated set of 80 university documents so every answer is grounded in real policy instead of an invented one. Co-built in a team of four; I worked on the retrieval side.</p>
+
       <div class="pipeline">
         <div class="stage input"><span class="k">Input</span><span class="v">Student question, Arabic or English</span></div>
         <div class="arrow">→</div>
-        <div class="stage process"><span class="k">Process</span><span class="v">Retrieval-augmented generation over institutional sources, tuned prompting to reduce hallucination</span></div>
+        <div class="stage process"><span class="k">Process</span><span class="v">Hybrid retrieval — BM25 keyword search fused with multilingual dense embeddings in FAISS via Reciprocal Rank Fusion</span></div>
         <div class="arrow">→</div>
-        <div class="stage output"><span class="k">Output</span><span class="v">Accurate, source-grounded answer, deployed to students</span></div>
+        <div class="stage output"><span class="k">Output</span><span class="v">A cited answer generated under a strict grounding prompt, restricted to retrieved context</span></div>
       </div>
-      <div class="tags"><span class="tag">RAG</span><span class="tag">LLMs</span><span class="tag">Arabic NLP</span><span class="tag">Prompt Engineering</span><span class="tag">Cloud</span></div>
+
+      <div class="figures">
+        <div class="figure">
+          <span class="fnum">0.762 → 0.857</span>
+          <span class="flabel">Arabic retrieval MRR, after query normalization and a bilingual academic glossary</span>
+        </div>
+        <div class="figure">
+          <span class="fnum">100%</span>
+          <span class="flabel">Recall@3 in both languages — the correct source always reaches the model</span>
+        </div>
+        <div class="figure">
+          <span class="fnum">&lt; 1s</span>
+          <span class="flabel">Cited answer returned, via Llama 3.3 70B on the Groq API</span>
+        </div>
+      </div>
+
+      <p class="metrics-note">Arabic retrieval was the hard part: matching how a student actually phrases a question to how a policy document formally states it.</p>
+
+      <div class="tags">
+        <span class="tag">Hybrid Retrieval</span><span class="tag">FAISS</span><span class="tag">BM25</span><span class="tag">Arabic NLP</span><span class="tag">Llama 3.3 70B</span><span class="tag">Groq API</span><span class="tag">Streamlit</span>
+      </div>
       <div class="project-links">
         <a href="https://github.com/HaneenAldossari/psau-chatbot-retrieval" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </div>
 
+    <!-- ===================== IEC Platform ===================== -->
     <div class="project">
       <div class="project-top">
         <h3 class="project-title">Innovation &amp; Entrepreneurship Club Platform</h3>
-        <span class="project-period mono">King Saud University · 2025</span>
+        <span class="project-period mono">King Saud University · 2025–Present</span>
       </div>
-      <p class="project-desc">Led technical development of the official digital platform for the club, built mobile-first so it holds up across every device students actually use.</p>
+      <p class="project-desc">The club's events and workshops lived scattered across posts and group chats. I led technical development on the official platform that replaced them — built mobile-first in Flutter Web, since nearly every student arrives from a phone. Live and in active production use, with event and workshop registration, club news, and entrepreneurship resources.</p>
       <div class="pipeline">
-        <div class="stage input"><span class="k">Input</span><span class="v">Club events, workshops & entrepreneurship resources</span></div>
+        <div class="stage input"><span class="k">Input</span><span class="v">Club events, workshops &amp; entrepreneurship resources</span></div>
         <div class="arrow">→</div>
-        <div class="stage process"><span class="k">Process</span><span class="v">Responsive web app built in Dart &amp; Flutter Web, led as technical lead</span></div>
+        <div class="stage process"><span class="k">Process</span><span class="v">Responsive Flutter Web application, built and led as technical lead</span></div>
         <div class="arrow">→</div>
-        <div class="stage output"><span class="k">Output</span><span class="v">Mobile-first platform used across student &amp; stakeholder devices</span></div>
+        <div class="stage output"><span class="k">Output</span><span class="v">A live platform in production use across phone, tablet, and desktop</span></div>
       </div>
-      <div class="tags"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Tech Leadership</span><span class="tag">Responsive Design</span></div>
+      <div class="tags">
+        <span class="tag">Flutter Web</span><span class="tag">Dart</span><span class="tag">Tech Leadership</span><span class="tag">Responsive Design</span>
+      </div>
       <div class="project-links">
         <a href="https://iecksu.com/homepage" target="_blank" rel="noopener">Visit website ↗</a>
       </div>
     </div>
 
-    <div class="project">
-      <div class="project-top">
-        <h3 class="project-title">ML Classification &amp; Data Analysis Pipeline</h3>
-        <span class="project-period mono">2024</span>
-      </div>
-      <p class="project-desc">A supervised learning pipeline that turns raw, messy data into predictions someone can actually make decisions with.</p>
-      <div class="pipeline">
-        <div class="stage input"><span class="k">Input</span><span class="v">Raw dataset</span></div>
-        <div class="arrow">→</div>
-        <div class="stage process"><span class="k">Process</span><span class="v">Preprocessing, feature engineering, model training &amp; evaluation</span></div>
-        <div class="arrow">→</div>
-        <div class="stage output"><span class="k">Output</span><span class="v">Reliable predictions supporting data-driven decisions</span></div>
-      </div>
-      <div class="tags"><span class="tag">Python</span><span class="tag">Machine Learning</span><span class="tag">Statistics</span><span class="tag">Data Analysis</span></div>
-    </div>
   </div>
 </section>
 
@@ -532,10 +670,17 @@
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-head">
-          <div><span class="timeline-role">EPMO Intern</span> · <span class="timeline-org">TAHAKOM</span></div>
-          <span class="timeline-date">June 2026 – Present</span>
+          <div><span class="timeline-role">Cooperative Training — EPMO</span> · <span class="timeline-org">TAHAKOM</span></div>
+          <span class="timeline-date">Jun 2026 – Aug 2026</span>
         </div>
-        <p class="timeline-desc">Interning with the Enterprise Project Management Office (EPMO), supporting project governance, tracking, and delivery across the organization.</p>
+        <div class="timeline-desc">
+          <p>Enterprise Project Management Office, Riyadh.</p>
+          <ul>
+            <li>Automated recurring project reporting with Python and Power Automate, consolidating and validating data from multiple sources and cutting four hours of manual work per week.</li>
+            <li>Built and maintained a Power BI dashboard tracking project performance, timelines, and deliverables — replacing the previous manual reporting cycle entirely.</li>
+            <li>Supported the technical team on digital tooling, joining requirements meetings and resolving reporting issues.</li>
+          </ul>
+        </div>
       </div>
       <div class="timeline-item win">
         <div class="timeline-head">
@@ -562,45 +707,45 @@
       <h2>What I work with</h2>
     </div>
 
-    <div class="marquee" aria-label="Technical skills">
+    <div class="marquee" aria-label="Languages and core tools">
       <div class="marquee-track">
         <div class="skill-chip"><img src="https://cdn.simpleicons.org/python" alt=""><span>Python</span></div>
         <div class="skill-chip"><img src="https://cdn.simpleicons.org/openjdk" alt=""><span>Java</span></div>
         <div class="skill-chip"><img src="https://cdn.simpleicons.org/javascript" alt=""><span>JavaScript</span></div>
         <div class="skill-chip"><img src="https://cdn.simpleicons.org/cplusplus" alt=""><span>C++</span></div>
-        <div class="skill-chip"><img src="https://cdn.simpleicons.org/mysql" alt=""><span>SQL</span></div>
         <div class="skill-chip"><img src="https://cdn.simpleicons.org/dart" alt=""><span>Dart</span></div>
         <div class="skill-chip"><img src="https://cdn.simpleicons.org/flutter" alt=""><span>Flutter</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/mysql" alt=""><span>SQL</span></div>
         <div class="skill-chip"><img src="https://cdn.simpleicons.org/git" alt=""><span>Git</span></div>
         <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/python" alt=""><span>Python</span></div>
         <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/openjdk" alt=""><span>Java</span></div>
         <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/javascript" alt=""><span>JavaScript</span></div>
         <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/cplusplus" alt=""><span>C++</span></div>
-        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/mysql" alt=""><span>SQL</span></div>
         <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/dart" alt=""><span>Dart</span></div>
         <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/flutter" alt=""><span>Flutter</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/mysql" alt=""><span>SQL</span></div>
         <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/git" alt=""><span>Git</span></div>
       </div>
     </div>
 
-    <div class="marquee marquee-reverse" aria-label="More technical skills">
+    <div class="marquee marquee-reverse" aria-label="AI, backend and data tools">
       <div class="marquee-track">
-        <div class="skill-chip"><img src="https://cdn.simpleicons.org/tensorflow" alt=""><span>Machine Learning</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/huggingface" alt=""><span>Embeddings &amp; Rerankers</span></div>
         <div class="skill-chip"><img src="https://cdn.simpleicons.org/openai" alt=""><span>LLMs &amp; RAG</span></div>
-        <div class="skill-chip"><img src="https://cdn.simpleicons.org/react" alt=""><span>Frontend</span></div>
-        <div class="skill-chip"><img src="https://cdn.simpleicons.org/nodedotjs" alt=""><span>Backend</span></div>
-        <div class="skill-chip"><img src="https://cdn.simpleicons.org/fastapi" alt=""><span>REST APIs</span></div>
-        <div class="skill-chip"><img src="https://cdn.simpleicons.org/googlecloud" alt=""><span>Cloud</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/fastapi" alt=""><span>FastAPI</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/postgresql" alt=""><span>PostgreSQL</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/firebase" alt=""><span>Firebase</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/streamlit" alt=""><span>Streamlit</span></div>
+        <div class="skill-chip"><img src="https://cdn.simpleicons.org/pytest" alt=""><span>Pytest</span></div>
         <div class="skill-chip"><img src="https://cdn.simpleicons.org/raspberrypi" alt=""><span>Embedded Systems</span></div>
-        <div class="skill-chip"><img src="https://cdn.simpleicons.org/pandas" alt=""><span>Data Analysis</span></div>
-        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/tensorflow" alt=""><span>Machine Learning</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/huggingface" alt=""><span>Embeddings &amp; Rerankers</span></div>
         <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/openai" alt=""><span>LLMs &amp; RAG</span></div>
-        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/react" alt=""><span>Frontend</span></div>
-        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/nodedotjs" alt=""><span>Backend</span></div>
-        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/fastapi" alt=""><span>REST APIs</span></div>
-        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/googlecloud" alt=""><span>Cloud</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/fastapi" alt=""><span>FastAPI</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/postgresql" alt=""><span>PostgreSQL</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/firebase" alt=""><span>Firebase</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/streamlit" alt=""><span>Streamlit</span></div>
+        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/pytest" alt=""><span>Pytest</span></div>
         <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/raspberrypi" alt=""><span>Embedded Systems</span></div>
-        <div class="skill-chip" aria-hidden="true"><img src="https://cdn.simpleicons.org/pandas" alt=""><span>Data Analysis</span></div>
       </div>
     </div>
   </div>
@@ -609,15 +754,24 @@
 <section id="certifications">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-label">05 · Certification</span>
+      <span class="section-label">05 · Certifications</span>
       <h2>Training</h2>
     </div>
-    <div class="cert-card">
-      <div>
-        <h3>Raspberry Pi Training Program</h3>
-        <p>Tuwaiq Academy — hands-on training in hardware integration, embedded systems, device configuration &amp; automation workflows.</p>
+    <div class="cert-list">
+      <div class="cert-card">
+        <div>
+          <h3>AWS AI Practitioner Program</h3>
+          <p>Saudi Digital Academy, delivered in partnership with AWS — AI fundamentals, generative AI, machine learning basics, AWS AI services, and responsible AI practices.</p>
+        </div>
+        <span class="cert-year">2026</span>
       </div>
-      <span class="cert-year">2025</span>
+      <div class="cert-card">
+        <div>
+          <h3>Raspberry Pi Training Program</h3>
+          <p>Tuwaiq Academy — hands-on training in Raspberry Pi fundamentals, hardware integration, embedded systems, and automation workflows.</p>
+        </div>
+        <span class="cert-year">2025</span>
+      </div>
     </div>
   </div>
 </section>
@@ -626,15 +780,15 @@
   <div class="contact">
     <div class="wrap">
       <span class="section-label" style="color:rgba(255,255,255,0.6);">06 · Contact</span>
-      <h2>Let's build something together.</h2>
-      <p>Open to full stack and AI-focused roles in Riyadh and remote. Send me a message or reach out directly.</p>
+      <h2>Looking for my next build.</h2>
+      <p>Open to Software and AI Engineer roles in Riyadh or remote. Email is the fastest way to reach me.</p>
 
       <form class="contact-form" action="https://formspree.io/f/mzdnrelw" method="POST">
         <div class="form-row">
-          <input type="text" name="name" placeholder="Your name" required>
-          <input type="email" name="email" placeholder="Your email" required>
+          <input type="text" name="name" placeholder="Your name" aria-label="Your name" required>
+          <input type="email" name="email" placeholder="Your email" aria-label="Your email" required>
         </div>
-        <textarea name="message" placeholder="Your message" rows="5" required></textarea>
+        <textarea name="message" placeholder="Your message" aria-label="Your message" rows="5" required></textarea>
         <button type="submit" class="form-btn">Send message →</button>
       </form>
 
